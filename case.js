@@ -6,8 +6,8 @@ canvas.height = 500
 const keys = []
 
 const player = {
-    x: 220,//tọa độ ảnh di chuyển trong canvas
-    y: 220,
+    x: 200,//tọa độ ảnh di chuyển trong canvas
+    y: 150,
     width: 40,//khoảng cách cắt ảnh từ 0 tới width theo chiều ngang
     height: 72,//khoảng cách cắt ảnh từ 0 tới height theo chiều dọc
     framesX: 0,// framesX là giá trị x trong ảnh gốc
@@ -21,8 +21,6 @@ playerSprite.src = "nhanVat.png"
 //khởi tạo ảnh nền
 const background = new Image()
 background.src = "bg.jpg"
-//const cui = new Image()
-//cui.src = "cui.jbg"
 //thêm hình ảnh nhân vật vào trong canvas
 // .drawImage vẽ hình ảnh lên canvas
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
@@ -52,6 +50,7 @@ setInterval(function () {
     movePlayer()
     cui1(images.cui11,  cui.x, cui.y , cui.width, cui.height,
         cui.cuiX, cui.cuiY, cui.width, cui.height)
+    vaCham()
     diChuyen()
 }, 100)//mili giây / 10 khung hình
 
@@ -98,6 +97,7 @@ function diChuyen() {
     } else {
         player.framesX = 0
     }
+
 }
 
 
@@ -109,14 +109,16 @@ images.cui11.src = "cui4.jpg"
     y: 0,
     width :10,
     height: 30,
-    cuiX:250,//vị trí
-    cuiY:150
+    cuiX:200,//vị trí
+    cuiY:160
   }
 
 function cui1(img, sX, sY, sW, sH, dX, dY, dW, dH) {
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH)
 }
-if (player.x === cui.cuiX || player.y === cui.cuiY){
+
+function vaCham() {
+if (player.x == cui.cuiX || player.y == cui.cuiY){
     console.log(1)
 }
-
+}
